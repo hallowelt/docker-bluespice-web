@@ -15,5 +15,5 @@ RUN apt-get install -y \
         libc6 \
 		tidy \
 		libtidy-dev \
-	&& docker-php-ext-configure tidy --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ \
-    && docker-php-ext-install -j$(nproc) tidy
+	&& docker-php-ext-install -j$(nproc) tidy \
+	&& docker-php-ext-install -j$(nproc) mysqli
