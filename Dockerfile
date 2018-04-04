@@ -1,6 +1,8 @@
 FROM php:7.0-apache
 RUN apt-get update
 RUN apt-get install -y vim
+RUN apt-get install -y unzip
+RUN apt-get install -y mysql-client
 RUN apt-get install -y \
         libfreetype6-dev \
         libjpeg62-turbo-dev \
