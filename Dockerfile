@@ -24,6 +24,10 @@ RUN apt-get install -y \
 
 RUN docker-php-ext-install -j$(nproc) zip
 
+RUN apt-get install -y libldap2-dev \
+	&& docker-php-ext-configure ldap --with-libdir=lib/x86_64-linux-gnu/ \
+	&& docker-php-ext-install ldap
+
 RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" \
 	&& php composer-setup.php --filename=composer --install-dir=/usr/local/bin/ \
 	&& php -r "unlink('composer-setup.php');"
