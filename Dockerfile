@@ -39,7 +39,6 @@ RUN apt-get -y --no-install-recommends install \
 	php-intl \
 	php-pear \
 	php-iconv \
-	php-mcrypt \
 	inkscape \
 	wget \
 	python3 \
