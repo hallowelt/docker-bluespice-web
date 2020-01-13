@@ -78,7 +78,10 @@ RUN sed -i 's/^max_execution_time.*$/max_execution_time = 600/g' /etc/php/7.2/fp
 	mkdir /run/php; \
 	chown -Rf www-data:www-data /run/php
 
+RUN rm /etc/nginx/sites-enabled/default
+
 COPY ./includes/configs/nginx/nginx.conf /etc/nginx/nginx.conf
+COPY ./includes/configs/nginx/vhost.conf /etc/nginx/sites-enabled/vhost.conf
 COPY ./includes/configs/nginx/www.conf /etc/php/7.2/fpm/pool.d/www.conf
 
 COPY ./includes/misc/cron /etc/cron.d/bluespice
